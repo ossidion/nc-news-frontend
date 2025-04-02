@@ -10,4 +10,11 @@ function getArticles() {
     });
 }
 
-export { getArticles };
+function getArticleById(id) {
+    return api.get(`/articles/${id}`)
+    .then((article) => {
+        return article.data
+    })
+}
+
+export { getArticles, getArticleById };

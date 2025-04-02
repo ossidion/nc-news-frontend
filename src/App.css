@@ -81,3 +81,16 @@ h1 {
   margin-bottom: 30px;
   color: #bd91db;;
 }
+
+p {
+  color: #bd91db;
+}
+
+.comment-count {
+  color: #9672c4;
+}
+
+/* ring-loader {
+  display: flex;
+  align-items: center;
+} */
