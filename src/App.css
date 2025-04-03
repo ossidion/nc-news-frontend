@@ -42,7 +42,11 @@ h1 {
   flex: 1 1 50px;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: #a372c4;
+  color: #7a57a8;
+}
+
+.article-body {
+  color: #7a58a8;
 }
 
 .img {
@@ -51,7 +55,6 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-
 
 .article-published-by {
   font-style: italic;
@@ -73,6 +76,28 @@ h1 {
   margin-bottom: 5px;
 }
 
+.comment-count {
+  color: #9672c4;
+}
+
+.comment-body {
+  color: #7a58a8;
+}
+
+.comment-created-at {
+  font-style: italic;
+  font-size: 0.75em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+}
+
+.comment-list-votes {
+  font-size: 0.75em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .footer {
   display: flex;
   align-items: center;
@@ -82,13 +107,11 @@ h1 {
   color: #bd91db;;
 }
 
-p {
+/* p {
   color: #bd91db;
-}
+} */
 
-.comment-count {
-  color: #9672c4;
-}
+
 
 /* ring-loader {
   display: flex;

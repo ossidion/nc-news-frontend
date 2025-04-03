@@ -17,4 +17,11 @@ function getArticleById(id) {
     })
 }
 
-export { getArticles, getArticleById };
+function getComments(id) {
+    return api.get(`/articles/${id}/comments`)
+    .then((comments) => {
+        return comments.data
+    })
+}
+
+export { getArticles, getArticleById, getComments };
