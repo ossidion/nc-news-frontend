@@ -30,7 +30,6 @@ function ArticlesWrapper() {
   return (
     <>
       <section>
-          {/* <h2>Articles</h2> */}
           <section className="article-list">
             {data.map((article) => {
               return <ArticleCard article={article} key={article.article_id} />;
