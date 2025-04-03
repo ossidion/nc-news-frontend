@@ -24,4 +24,12 @@ function getComments(id) {
     })
 }
 
-export { getArticles, getArticleById, getComments };
+function updateArticleVotesInc(id) {
+    return api.patch(`/articles/${id}`, {inc_votes: 1})
+}
+
+function updateArticleVotesDec(id) {
+    return api.patch(`/articles/${id}`, {inc_votes: -1})
+}
+
+export { getArticles, getArticleById, getComments, updateArticleVotesInc, updateArticleVotesDec };

@@ -2,11 +2,11 @@ import CommentCard from "./CommentCard"
 import { getComments } from "../api"
 import { useEffect, useState } from "react"
 
-function GetCommentsHandler( article ) {
+function GetCommentsHandler({ article }) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    getComments(article.article.article_id)
+    getComments(article.article_id)
     .then(({ comments }) =>{
       setComments(comments)
         })

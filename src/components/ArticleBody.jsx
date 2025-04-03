@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
-import { getArticleById, getComments } from "../api";
+import { getArticleById } from "../api";
 import { useState, useEffect } from 'react';
 import { RingLoader } from 'react-spinners';
 import GetCommentsHandler from "./GetCommentsHandler";
+import VoteHandler from "./VoteHandler";
 
 
 function ArticleBody() {
@@ -38,8 +39,9 @@ function ArticleBody() {
         <h2 className="article-title">{article.title}</h2>
         <img className="img" src={article.article_img_url} alt={article.title}></img>
         <p className="article-body">{article.body}</p>
+        <VoteHandler article_id={article} />
         <h3 className="comment-count">Comments: {article.comment_count}</h3>
-        <GetCommentsHandler article={article}/>
+        <GetCommentsHandler article={article} />
       </section>
     </>
     )
