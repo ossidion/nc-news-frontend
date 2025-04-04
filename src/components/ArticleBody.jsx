@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { RingLoader } from 'react-spinners';
 import GetCommentsHandler from "./GetCommentsHandler";
 import VoteHandler from "./VoteHandler";
+import PostCommentHandler from "./PostCommentHandler";
 
 
 function ArticleBody() {
@@ -41,6 +42,7 @@ function ArticleBody() {
         <p className="article-body">{article.body}</p>
         <VoteHandler article_id={article} />
         <h3 className="comment-count">Comments: {article.comment_count}</h3>
+        <PostCommentHandler article_id={article} />
         <GetCommentsHandler article={article} />
       </section>
     </>

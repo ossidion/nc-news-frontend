@@ -32,4 +32,11 @@ function updateArticleVotesDec(id) {
     return api.patch(`/articles/${id}`, {inc_votes: -1})
 }
 
-export { getArticles, getArticleById, getComments, updateArticleVotesInc, updateArticleVotesDec };
+function postComment(id, commentInput) {
+    return api.post(`articles/${id}/comments`, {
+        username: 'jessjelly',
+        body: `${commentInput}`
+      })
+}
+
+export { getArticles, getArticleById, getComments, updateArticleVotesInc, updateArticleVotesDec, postComment };
