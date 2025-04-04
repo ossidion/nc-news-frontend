@@ -1,16 +1,11 @@
 import { postComment } from "../api";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const PostCommentHandler = ({  article_id }) => {
 
   const [commentInput, setCommentInput] = useState('');
 
   const [successfulCommentMessage, setSuccessfulCommentMessage] = useState(false)
-
-  // useEffect(() => {
-  //   setSuccessfulCommentMessage(false)
-  // })
-
 
   const handleChange = (event) => {
     // event.preventDefault();

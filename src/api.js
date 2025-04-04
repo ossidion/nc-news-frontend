@@ -39,4 +39,16 @@ function postComment(id, commentInput) {
       })
 }
 
-export { getArticles, getArticleById, getComments, updateArticleVotesInc, updateArticleVotesDec, postComment };
+function deleteComment(id) {
+    return api.delete(`comments/${id}`)
+}
+
+export { 
+    getArticles, 
+    getArticleById, 
+    getComments, 
+    updateArticleVotesInc, 
+    updateArticleVotesDec, 
+    postComment,
+    deleteComment
+};
