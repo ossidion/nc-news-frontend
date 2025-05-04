@@ -107,13 +107,9 @@ h1 {
   color: #bd91db;;
 }
 
-/* p {
-  color: #bd91db;
-} */
-
-
-
-/* ring-loader {
-  display: flex;
-  align-items: center;
-} */
+.ring-loader {
+    min-height: '100vh';
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center'
+}
