@@ -32,7 +32,12 @@ function ArticleBody() {
 
     if (error) return <p>oops, something went wrong!</p>
 
-    if (isLoading) return <RingLoader />
+    if (isLoading) return <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}><RingLoader /></div>
 
     return (
     <>
