@@ -5,6 +5,14 @@
   background-color: #ABE2B0;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  min-height: 100vh; /* Ensures it takes up the full height of the screen */
+}
+
 .header {
   display: flex;
   align-items: center;
