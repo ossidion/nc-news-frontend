@@ -26,10 +26,10 @@ function ArticlesWrapper() {
   if (error) return <p>oops, something went wrong!</p>
 
   if (isLoading) return <div style={{
-    minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    minHeight: '60vh',
   }}><RingLoader /></div>
 
   return (
