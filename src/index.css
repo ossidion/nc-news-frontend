@@ -68,3 +68,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background-color: #111827; /* bg-gray-900 */
+    border-color: #374151;     /* border-gray-700 */
+  }
+  .logo-text{
+    color: white;              /* dark:text-white */
+  }
+  .navbar-dropdown {
+    color: #9ca3af;                  /* dark:text-gray-400 */
+  }
+
+  .navbar-dropdown:hover {
+    background-color: #374151;       /* dark:hover:bg-gray-700 */
+  }
+
+  .navbar-dropdown:focus {
+    box-shadow: 0 0 0 2px #4b5563;   /* dark:focus:ring-gray-600 */
+  }
+}
