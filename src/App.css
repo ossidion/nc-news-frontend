@@ -1,16 +1,316 @@
 /* @import "tailwindcss"; */
 
+/* all */
 
 * {
   background-color: #ABE2B0;
 }
 
+/* header & nav */
+
+.header-logo {
+  height: 24px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* bg-white */
+  border-color: #e5e7eb;     /* border-gray-200 */
+}
+
+.nav-div {
+  max-width: 1280px;      /* max-w-screen-xl */
+  display: flex;          /* flex */
+  flex-wrap: wrap;        /* flex-wrap */
+  align-items: center;    /* items-center */
+  justify-content: space-between; /* justify-between */
+  margin-left: auto;      /* mx-auto (horizontal auto margins) */
+  margin-right: auto;
+  padding: 1rem;          /* p-4 (1rem = 16px if root font size is default) */
+}
+
+.logo-container {
+  display: flex;              /* flex */
+  align-items: center;        /* items-center */
+  gap: 0.75rem;               /* space-x-3 = 12px horizontal gap */
+  direction: ltr;             /* optional default, for clarity */
+}
+
+.logo-container:dir(rtl) {
+  flex-direction: row-reverse; /* rtl:space-x-reverse behavior */
+}
+
+.logo-text {
+  align-self: center;          /* self-center */
+  font-size: 1.5rem;           /* text-2xl = 24px */
+  font-weight: 600;            /* font-semibold */
+  white-space: nowrap;         /* whitespace-nowrap */
+  color: black;                /* default text color */
+}
+
+.navbar {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+}
+.dark .navbar {
+  background-color: #111827;
+  border-color: #374151;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  direction: ltr;
+}
+
+.logo-img {
+  height: 2rem;
+}
+
+.navbar-title {
+  align-self: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #000;
+}
+.dark .navbar-title {
+  color: #ffffff;
+}
+
+.navbar-dropdown {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.navbar-dropdown:hover {
+  background-color: #f3f4f6;
+}
+.navbar-dropdown:focus {
+  outline: none;
+  ring: 2px solid #e5e7eb;
+}
+.dark .navbar-dropdown {
+  color: #9ca3af;
+}
+.dark .navbar-dropdown:hover {
+  background-color: #374151;
+}
+.dark .navbar-dropdown:focus {
+  ring: 2px solid #4b5563;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.navbar-dropdown-content {
+  display: none;
+  width: 100%;
+}
+
+.navbar-dropdown-content.block {
+  display: block;
+}
+
+.navbar-dropdown-content.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-dropdown-content {
+    display: block;
+    width: auto;
+  }
+}
+
+.ul-navbar-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+@media (min-width: 768px) {
+  .ul-navbar-dropdown-content {
+    flex-direction: row;
+    margin-top: 0;
+    border: none;
+    background-color: #ffffff;
+    gap: 2rem;
+  }
+  .dark .ul-navbar-dropdown-content {
+    background-color: #111827;
+  }
+}
+
+.nav-bar-home {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  border-radius: 0.125rem;
+}
+@media (min-width: 768px) {
+  .nav-bar-home {
+    background-color: transparent;
+    color: #1d4ed8;
+    padding: 0;
+  }
+  .dark .nav-bar-home {
+    color: #3b82f6;
+  }
+  .dark .nav-bar-home:hover {
+    background-color: transparent;
+  }
+}
+
+.topics-drop-down-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  color: #111827;
+  border-radius: 0.125rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+.topics-drop-down-button:hover {
+  background-color: #f3f4f6;
+}
+@media (min-width: 768px) {
+  .topics-drop-down-button {
+    width: auto;
+    border: none;
+    padding: 0;
+    color: #1d4ed8;
+    background-color: transparent;
+  }
+  .topics-drop-down-button:hover {
+    background-color: transparent;
+  }
+  .dark .topics-drop-down-button {
+    color: #ffffff;
+  }
+  .dark .topics-drop-down-button:hover {
+    color: #3b82f6;
+    background-color: transparent;
+  }
+}
+
+.topics-drop-down-button-svg {
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-left: 0.625rem;
+}
+
+.topics-drop-down-menu {
+  z-index: 10;
+  display: none;
+  font-weight: 400;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  width: 11rem;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+.dark .topics-drop-down-menu {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.topics-ul {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+.dark .topics-ul {
+  color: #e5e7eb;
+}
+
+.topic-list {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #374151;
+}
+.topic-list:hover {
+  background-color: #f3f4f6;
+}
+.dark .topic-list {
+  color: #e5e7eb;
+}
+.dark .topic-list:hover {
+  background-color: #4b5563;
+  color: #ffffff;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #111827;
+  border-radius: 0.125rem;
+}
+.nav-link:hover {
+  background-color: #f3f4f6;
+}
+@media (min-width: 768px) {
+  .nav-link {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: #1d4ed8;
+  }
+  .dark .nav-link {
+    color: #ffffff;
+  }
+  .dark .nav-link:hover {
+    background-color: transparent;
+    color: #3b82f6;
+  }
+}
+
+
+
+
+
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  min-height: 100vh; /* Ensures it takes up the full height of the screen */
+  justify-content: center;
+  align-items: center; 
+  min-height: 100vh; 
 }
 
 .header {
@@ -25,12 +325,6 @@ h1 {
   text-align: left;
 }
 
-.nav {
-  display: flex;
-  align-content: space-between;
-  align-items: center;
-  justify-content: center;
-}
 
 .nav-item{
   margin-top: 0px;

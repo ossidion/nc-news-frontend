@@ -6,8 +6,8 @@ function Header() {
     const {loggedInUser} = useContext(UserContext) 
     return (
         <>
-            <p>Welcome: { loggedInUser }</p>
-            <h1 className="header">NC News</h1>
+            {/* <p>Welcome: { loggedInUser }</p>
+            <h1 className="header">NC News</h1> */}
                 <Nav />
         </>
     )
