@@ -6,7 +6,7 @@ function ArticleCard ({ article }) {
     <>
       <section className="article-card">
         <Link to={`articles/${article.article_id}`}>
-          <p>{article.title}</p>
+          <p className="article-title">{article.title}</p>
           <img className="img" src={article.article_img_url} alt={article.title}></img>
         </Link> 
         <p className="article-published-by">Published by {article.author}</p>
