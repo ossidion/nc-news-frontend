@@ -1,40 +1,43 @@
 import { postComment } from "../api";
 import { useState } from 'react';
 
-const PostCommentHandler = ({  article_id }) => {
+const PostCommentHandler = ({ article_id, addNewComment }) => {
 
   const [commentInput, setCommentInput] = useState('');
-
-  const [successfulCommentMessage, setSuccessfulCommentMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (event) => {
-    // event.preventDefault();
     setCommentInput(event.target.value)
   }
 
-
-  const handleSubmit = (event) => {
-    setSuccessfulCommentMessage(false)
-
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    postComment(article_id.article_id, commentInput)
-    setSuccessfulCommentMessage(true)
-    setCommentInput(() => {
-      return ""
-    })
+    setErrorMessage('');
+
+    try {
+      const newComment = await postComment(article_id, commentInput);
+      addNewComment(newComment);
+      setCommentInput('');
+    } catch (error) {
+      setErrorMessage('Failed to post comment. Please try again.');
+    }
   }
 
-  if (successfulCommentMessage === true) return <p>Successfully commented!</p>
-
   return (
-    <section className="post-comment-form">
-      <form onSubmit={handleSubmit}>
-        <label>Post Comment..
-          <input type="text" onChange={handleChange} value={commentInput}></input>
-        </label>
-        <button type="submit">Post</button>
+    <section>
+      {errorMessage && <p style={{ color: 'red', marginBottom: '0.5rem' }}>{errorMessage}</p>}
+      <form onSubmit={handleSubmit} className="post-comment-form">
+        <textarea
+          value={commentInput}
+          onChange={handleChange}
+          placeholder="Share your thoughts..."
+          className="post-comment-textarea"
+          required
+        />
+        <button type="submit" className="post-comment-button" disabled={!commentInput.trim()}>
+          Post
+        </button>
       </form>
-      <p>{}</p>
     </section>
   )
 }

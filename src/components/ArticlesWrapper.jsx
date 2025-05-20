@@ -2,16 +2,19 @@ import ArticleCard from './ArticleCard'
 import { useState, useEffect } from 'react';
 import { getArticles } from '../api';
 import { RingLoader } from 'react-spinners';
+import { useParams } from 'react-router-dom';
 
-function ArticlesWrapper() {
+function ArticlesWrapper({closeTopics, closeMenu}) {
+  
   const [data, setArticles] = useState([]);
   const [error, setError] = useState([false]);
   const [isLoading, setIsLoading] = useState([true]);
+  const { topic } = useParams();
 
   useEffect (() => {
     setIsLoading(true);
     setError(false);
-    getArticles()
+    getArticles(topic)
     .then((data) => {
       setArticles(data)
     })
@@ -21,7 +24,7 @@ function ArticlesWrapper() {
     .finally(() => {
       setIsLoading(false)
     })
-  }, []);
+  }, [topic]);
 
   if (error) return <p>oops, something went wrong!</p>
 
@@ -29,16 +32,24 @@ function ArticlesWrapper() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: '60vh',
+    minHeight: '75vh',
   }}><RingLoader /></div>
 
   return (
     <>
       <section>
-          <section className="article-list">
-            {data.map((article) => {
-              return <ArticleCard article={article} key={article.article_id} />;
-            })}
+        {topic && (
+          <h2 className="topic-heading">
+          Articles about {topic.charAt(0).toUpperCase() + topic.slice(1)}
+          </h2>
+        )};
+        <section className="article-list">
+          {data.map((article) => {
+            return <ArticleCard article={article} key={article.article_id} onClick={() => {
+              closeTopics();
+              closeMenu();
+            }}/>
+            })};
         </section>
       </section>   
     </>

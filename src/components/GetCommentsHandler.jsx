@@ -1,36 +1,18 @@
-import CommentCard from "./CommentCard"
-import { getComments } from "../api"
-import { useEffect, useState } from "react"
+import CommentCard from "./CommentCard";
 
-function GetCommentsHandler({ article }) {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    getComments(article.article_id)
-    .then(({ comments }) =>{
-      setComments(comments)
-        })
-  }, [])
-
-  
-  // function handleClick () {
-  //   getComments(article.article.article_id)
-  //   .then((comments) => {
-  //     console.log(comments.data)
-  //     return <div>Hello</div>
-  //   })
-  //   return <div>Hello</div>
-
-  // }
-
-  
+function GetCommentsHandler({ comments, newlyAddedCommentId, onDelete, commentBeingDeletedId }) {
   return (
     <section>
-        {comments.map((comment) => {
-          return <CommentCard comment={comment} key={comment.comment_id} />
-        })}
+      {comments.map((comment) => (
+        <CommentCard
+          comment={comment}
+          key={comment.comment_id}
+          className={comment.comment_id === newlyAddedCommentId ? 'new-comment' : ''}
+          onDelete={onDelete}
+        />
+      ))}
     </section>
-  )
+  );
 }
 
-export default GetCommentsHandler
+export default GetCommentsHandler;
