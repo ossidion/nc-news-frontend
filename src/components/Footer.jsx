@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer className="footer">
-            <p>NC News©</p>
+            <p className="footer-text">NC News©</p>
         </footer>
     )
 }

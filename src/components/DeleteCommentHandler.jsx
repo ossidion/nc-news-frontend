@@ -1,37 +1,24 @@
-import { deleteComment } from "../api"
-import { useState, useEffect } from 'react';
-import { RingLoader } from 'react-spinners';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-
-const DeleteCommentHandler = ({comment}) => {
-
-  const [successfulDeleteMessage, setSuccessfulDeleteMessage] = useState(false)
-
-  // const [error, setError] = useState([false]);
-
-  // const [isLoading, setIsLoading] = useState([true]);
-
-  // console.log(comment.comment_id)
+const DeleteCommentHandler = ({ comment, onDelete }) => {
 
   const deleteCurrentComment = () => {
-    // setIsLoading(true)
-    // setError(false)
-    deleteComment(comment.comment_id)
-    setSuccessfulDeleteMessage(true)
-  }
-
-  if (successfulDeleteMessage === true) return <p>Successfully deleted!</p>
-
-  // if (error) return <p>oops, something went wrong!</p>
-
-  // if (isLoading) return <RingLoader />
-
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      onDelete(comment.comment_id);
+    }
+  };
 
   return (
-  <section>
-    <button onClick={deleteCurrentComment}>Delete Comment</button>
-  </section>
-  )
+    <button
+      className="delete-comment-button"
+      onClick={deleteCurrentComment}
+      aria-label="Delete comment"
+      title="Delete comment"
+    >
+      <FontAwesomeIcon icon={faTrash} />
+    </button>
+  );
 }
 
 export default DeleteCommentHandler
