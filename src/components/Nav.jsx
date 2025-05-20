@@ -10,7 +10,7 @@ function Nav({ isMenuOpen, toggleMenu, closeMenu, isTopicsOpen, toggleTopics, cl
             closeTopics();
             closeMenu();
                   }}>            
-        <img src="./public/assets/logo.jpg" className="logo-img" alt="Logo"/>
+        <img src="/assets/logo.jpg" className="logo-img" alt="Logo"/>
             <span className="navbar-title">NC News</span>
             </Link>
           <div className="navbar-button-wrapper">
